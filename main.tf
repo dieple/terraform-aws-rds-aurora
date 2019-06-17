@@ -16,7 +16,7 @@ module "aurora" {
   replica_scale_min               = "${var.replica_scale_min}"
   replica_scale_max               = "${var.replica_scale_max}"
   monitoring_interval             = "${var.monitoring_interval}"
-  instance_type                   = "${var.monitoring_interval}"
+  instance_type                   = "${var.instance_type}"
   apply_immediately               = "${var.apply_immediately}"
   skip_final_snapshot             = "${var.skip_final_snapshot}"
   db_parameter_group_name         = "${aws_db_parameter_group.db_param_group.id}"
