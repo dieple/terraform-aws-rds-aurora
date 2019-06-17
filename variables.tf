@@ -28,8 +28,6 @@ variable "monitoring_interval" {}
 variable "instance_type" {}
 variable "apply_immediately" {}
 variable "skip_final_snapshot" {}
-variable "db_parameter_group_name" {}
-variable "db_cluster_parameter_group_name" {}
 
 variable "enabled_cloudwatch_logs_exports" {
   type    = "list"
