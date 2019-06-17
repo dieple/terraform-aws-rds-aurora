@@ -35,3 +35,8 @@ variable "enabled_cloudwatch_logs_exports" {
 }
 
 variable "family" {}
+
+variable "database_name" {}
+variable "master_username" {}
+variable "master_password" {}
+variable "kms_key_id" {}
