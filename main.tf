@@ -13,11 +13,13 @@ module "aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
   version = "~> 1.0"
 
-  kms_key_id                      = "${var.kms_key_id}"
-  name                            = "${var.name}"
-  database_name                   = "${var.database_name}"
-  username                        = "${var.master_username}"
-  password                        = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
+  kms_key_id    = "${var.kms_key_id}"
+  name          = "${var.name}"
+  database_name = "${var.database_name}"
+  username      = "${var.master_username}"
+
+  //  password                        = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
+  password                        = "${var.master_password}"
   engine                          = "${var.engine}"
   engine_version                  = "${var.engine_version}"
   subnets                         = "${var.subnets}"
