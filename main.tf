@@ -9,7 +9,7 @@ module "aurora" {
   kms_key_id                      = "${var.kms_key_id}"
   name                            = "${var.name}"
   database_name                   = "${var.database_name}"
-  master_username                 = "${var.master_username}"
+  username                        = "${var.master_username}"
   master_password                 = "${var.master_password}"
   engine                          = "${var.engine}"
   engine_version                  = "${var.engine_version}"
