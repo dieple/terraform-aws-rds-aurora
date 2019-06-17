@@ -19,14 +19,13 @@ module "aurora" {
   instance_type                   = "${var.monitoring_interval}"
   apply_immediately               = "${var.apply_immediately}"
   skip_final_snapshot             = "${var.skip_final_snapshot}"
-  family                          = "${var.cluster_family}"
   db_parameter_group_name         = "${aws_db_parameter_group.db_param_group.id}"
   db_cluster_parameter_group_name = "${aws_rds_cluster_parameter_group.db_cluster_pg.id}"
 }
 
 resource "aws_db_parameter_group" "db_param_group" {
   name        = "${var.name}-db-instance-pg"
-  family      = "${var.cluster_family}"
+  family      = "${var.family}"
   description = "automic db postgres10 parameter group"
 
   parameter {
@@ -57,7 +56,7 @@ resource "aws_db_parameter_group" "db_param_group" {
 
 resource "aws_rds_cluster_parameter_group" "db_cluster_pg" {
   name        = "${var.name}-cluster-pg"
-  family      = "${var.cluster_family}"
+  family      = "${var.family}"
   description = "automic db cluster postgres10 parameter group"
 
   parameter {

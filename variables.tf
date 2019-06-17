@@ -36,4 +36,4 @@ variable "enabled_cloudwatch_logs_exports" {
   default = ["audit", "error", "general", "slowquery"]
 }
 
-variable "cluster_family" {}
+variable "family" {}
