@@ -10,7 +10,7 @@ module "aurora" {
   name                            = "${var.name}"
   database_name                   = "${var.database_name}"
   username                        = "${var.master_username}"
-  master_password                 = "${var.master_password}"
+  password                        = "${var.master_password}"
   engine                          = "${var.engine}"
   engine_version                  = "${var.engine_version}"
   subnets                         = "${var.subnets}"
