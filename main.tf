@@ -2,12 +2,12 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-data "aws_kms_secrets" "aurora" {
-  secret {
-    name    = "master_password"
-    payload = "${var.master_password}"
-  }
-}
+//data "aws_kms_secrets" "aurora" {
+//  secret {
+//    name    = "master_password"
+//    payload = "${var.master_password}"
+//  }
+//}
 
 module "aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
