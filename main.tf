@@ -76,6 +76,6 @@ resource "aws_rds_cluster_parameter_group" "db_cluster_pg" {
 
   parameter {
     name  = "autovacuum_naptime"
-    value = "60"
+    value = "1"
   }
 }
