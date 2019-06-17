@@ -1,3 +1,8 @@
+output "this_rds_cluster_arn" {
+  description = "The ID of the cluster"
+  value       = "${module.aurora.this_rds_cluster_arn}"
+}
+
 output "this_rds_cluster_id" {
   description = "The ID of the cluster"
   value       = "${module.aurora.this_rds_cluster_id}"
