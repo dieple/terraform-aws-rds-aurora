@@ -18,8 +18,7 @@ variable "vpc_id" {
   type = "string"
 }
 
-variable "replica_count" {
-}
+variable "replica_count" {}
 
 variable "replica_scale_enabled" {}
 
@@ -31,11 +30,10 @@ variable "apply_immediately" {}
 variable "skip_final_snapshot" {}
 variable "db_parameter_group_name" {}
 variable "db_cluster_parameter_group_name" {}
-variable "enabled_cloudwatch_logs_exports"{
-  type = list
+
+variable "enabled_cloudwatch_logs_exports" {
+  type    = "list"
   default = ["audit", "error", "general", "slowquery"]
 }
 
-variable "cluster_family" {
-
-}
+variable "cluster_family" {}
