@@ -7,20 +7,28 @@ provider "aws" {
 //    name    = "master_password"
 //    payload = "${var.master_password}"
 //  }
+//
+//  secret {
+//    name    = "master_username"
+//    payload = "${var.master_username}"
+//  }
 //}
 
 module "aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
   version = "~> 1.0"
 
+  username = "${var.master_username}"
+  password = "${var.master_password}"
+
   kms_key_id    = "${var.kms_key_id}"
   name          = "${var.name}"
   database_name = "${var.database_name}"
-  username      = "${var.master_username}"
 
   //  password                        = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
-  password                        = "${var.master_password}"
-  engine                          = "${var.engine}"
+  //  username                        = "${data.aws_kms_secrets.aurora.plaintext["master_username"]}"
+  engine = "${var.engine}"
+
   engine_version                  = "${var.engine_version}"
   subnets                         = "${var.subnets}"
   vpc_id                          = "${var.vpc_id}"
@@ -34,6 +42,9 @@ module "aurora" {
   skip_final_snapshot             = "${var.skip_final_snapshot}"
   db_parameter_group_name         = "${aws_db_parameter_group.db_param_group.id}"
   db_cluster_parameter_group_name = "${aws_rds_cluster_parameter_group.db_cluster_pg.id}"
+  backup_retention_period         = "${var.backup_retention_period}"
+  preferred_backup_window         = "${var.preferred_backup_window}"
+  preferred_maintenance_window    = "${var.preferred_maintenance_window}"
 }
 
 resource "aws_db_parameter_group" "db_param_group" {
