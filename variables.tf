@@ -41,13 +41,13 @@ variable "database_name" {}
 variable "master_username" {
   type = "string"
 
-  //  default = "AQICAHiJry92zgaqTuHrw23xcXltrvX0lMF10kWCAqDiVZWUzgENEeoKOZ7Qun9M5jc+3lt+AAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAforNFWubNK5v1DJAgEQgCNsm2PtYZTtbL1kkTfx2YX9RnaHDDffa78HFiH8/AYgYcywyw=="
+    default = "AQICAHiJry92zgaqTuHrw23xcXltrvX0lMF10kWCAqDiVZWUzgENEeoKOZ7Qun9M5jc+3lt+AAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAforNFWubNK5v1DJAgEQgCNsm2PtYZTtbL1kkTfx2YX9RnaHDDffa78HFiH8/AYgYcywyw=="
 }
 
 variable "master_password" {
   type = "string"
 
-  //  default = "AQICAHiJry92zgaqTuHrw23xcXltrvX0lMF10kWCAqDiVZWUzgG2jY4ggDUCMVGrcsQ5ut9qAAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMVuZinpRWdPW4cM/ZAgEQgCnt+8QDg/RfWsiWhAIChGWg6tBTrfX+dMlqTVNWGay9C57z/mx0GMxklg=="
+    default = "AQICAHiJry92zgaqTuHrw23xcXltrvX0lMF10kWCAqDiVZWUzgG2jY4ggDUCMVGrcsQ5ut9qAAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMVuZinpRWdPW4cM/ZAgEQgCnt+8QDg/RfWsiWhAIChGWg6tBTrfX+dMlqTVNWGay9C57z/mx0GMxklg=="
 }
 
 variable "kms_key_id" {}

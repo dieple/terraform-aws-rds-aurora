@@ -2,31 +2,31 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-//data "aws_kms_secrets" "aurora" {
-//  secret {
-//    name    = "master_password"
-//    payload = "${var.master_password}"
-//  }
-//
-//  secret {
-//    name    = "master_username"
-//    payload = "${var.master_username}"
-//  }
-//}
+data "aws_kms_secrets" "aurora" {
+  secret {
+    name    = "master_password"
+    payload = "${var.master_password}"
+  }
+
+  secret {
+    name    = "master_username"
+    payload = "${var.master_username}"
+  }
+}
 
 module "aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
   version = "~> 1.0"
 
-  username = "${var.master_username}"
-  password = "${var.master_password}"
+//  username = "${var.master_username}"
+//  password = "${var.master_password}"
 
   kms_key_id    = "${var.kms_key_id}"
   name          = "${var.name}"
   database_name = "${var.database_name}"
 
-  //  password                        = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
-  //  username                        = "${data.aws_kms_secrets.aurora.plaintext["master_username"]}"
+    password                        = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
+    username                        = "${data.aws_kms_secrets.aurora.plaintext["master_username"]}"
   engine = "${var.engine}"
 
   engine_version                  = "${var.engine_version}"
