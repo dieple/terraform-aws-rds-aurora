@@ -45,6 +45,7 @@ module "aurora" {
   backup_retention_period         = "${var.backup_retention_period}"
   preferred_backup_window         = "${var.preferred_backup_window}"
   preferred_maintenance_window    = "${var.preferred_maintenance_window}"
+  port                            = "${var.port}"
 }
 
 resource "aws_db_parameter_group" "db_param_group" {
