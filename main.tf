@@ -18,17 +18,15 @@ module "aurora" {
   source  = "terraform-aws-modules/rds-aurora/aws"
   version = "~> 1.0"
 
-//  username = "${var.master_username}"
-//  password = "${var.master_password}"
+  //  username = "${var.master_username}"
+  //  password = "${var.master_password}"
 
   kms_key_id    = "${var.kms_key_id}"
   name          = "${var.name}"
   database_name = "${var.database_name}"
-
-    password                        = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
-    username                        = "${data.aws_kms_secrets.aurora.plaintext["master_username"]}"
-  engine = "${var.engine}"
-
+  password = "${data.aws_kms_secrets.aurora.plaintext["master_password"]}"
+  username = "${data.aws_kms_secrets.aurora.plaintext["master_username"]}"
+  engine   = "${var.engine}"
   engine_version                  = "${var.engine_version}"
   subnets                         = "${var.subnets}"
   vpc_id                          = "${var.vpc_id}"
@@ -65,7 +63,7 @@ resource "aws_db_parameter_group" "db_param_group" {
 
   parameter {
     name  = "idle_in_transaction_session_timeout"
-    value = "5"
+    value = "300000"
   }
 
   parameter {
@@ -101,6 +99,11 @@ resource "aws_rds_cluster_parameter_group" "db_cluster_pg" {
 
   parameter {
     name  = "autovacuum_naptime"
-    value = "1"
+    value = "60"
+  }
+
+  parameter {
+    name  = "client_encoding"
+    value = "LATIN1"
   }
 }
